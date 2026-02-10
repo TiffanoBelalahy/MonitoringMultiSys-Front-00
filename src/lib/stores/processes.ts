@@ -56,19 +56,28 @@ function createProcessStore() {
   const getProcesses = async () => {
     try {
       const host = get(selectedHost);
-      const result = await api.getProcesses(host);
+
+      if (!host) {
+        console.warn("No agent selected, skipping getProcesses");
+        //update((state) => ({ ...state, isLoading: false }));
+        return;
+      }
+
+      const { processes, systemStats } = await api.getProcesses(host);
 
       update((state) => {
-        let updatedSelectedProcess = state.selectedProcess;
-        if (state.selectedProcessPid) {
+        let updatedSelectedProcess = null;
+
+        if (state.selectedProcessPid !== null) {
           updatedSelectedProcess =
-            result[0].find((p) => p.pid === state.selectedProcessPid) || null;
+            processes?.find((p) => p.pid === state.selectedProcessPid) ?? null;
         }
 
         return {
           ...state,
-          processes: result[0],
-          systemStats: result[1],
+          processes,
+          systemStats,
+          selectedProcess: updatedSelectedProcess,
           error: null,
         };
       });
@@ -79,6 +88,10 @@ function createProcessStore() {
       }));
     }
   };
+
+
+
+
 
   const killProcess = async (pid: number) => {
     try {

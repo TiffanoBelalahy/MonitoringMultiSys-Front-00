@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import { debounce } from "$lib/utils";
+  import { loadHosts } from "$lib/stores/hosts";
+
   import {
     StatsBar,
     ToolBar,
@@ -31,7 +33,7 @@
     sortConfig,
   } = $processStore);
 
-  let intervalId: NodeJS.Timeout;
+  let intervalId: ReturnType<typeof setInterval>;//NodeJS.Timeout;
   let lastProcessCount = 0;
   let cachedFilteredProcesses: Process[] = [];
   let cachedSortedProcesses: Process[] = [];
@@ -110,17 +112,19 @@
   }
 
   onMount(async () => {
-    try {
-      await processStore.getProcesses();
-    } catch (error) {
-      console.error("Failed to load processes:", error);
-    } finally {
-      processStore.setIsLoading(false);
-    }
+  try {
+    await loadHosts();          // 🔥 IMPORTANT
+    await processStore.getProcesses();
+  } catch (error) {
+    console.error("Failed to load data:", error);
+  } finally {
+    processStore.setIsLoading(false);
+  }
 
-    settingsStore.init();
-    themeStore.init();
-  });
+  settingsStore.init();
+  themeStore.init();
+});
+
 
   onDestroy(() => {
     if (intervalId) clearInterval(intervalId);

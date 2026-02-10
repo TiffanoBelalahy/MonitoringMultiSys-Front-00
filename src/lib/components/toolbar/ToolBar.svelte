@@ -8,6 +8,7 @@
     FilterToggle,
   } from "$lib/components";
   import { overlayStore } from "$lib/stores/overlay";
+  import { hosts, selectedHost } from "$lib/stores/hosts";
 
   export let searchTerm: string;
   export let itemsPerPage: number;
@@ -70,6 +71,20 @@
 
     <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "theme"}>
       <AppInfo />
+    </div>
+    <div class:hidden={isAnyOverlayOpen }>
+      <select bind:value={$selectedHost}>
+      <option value="" disabled>
+        -- Select agent --
+      </option>
+
+      {#each $hosts as host}
+        <option value={host.id}>
+          {host.id} {host.online ? "🟢" : "🔴"}
+        </option>
+      {/each}
+    </select>
+
     </div>
   </div>
 </div>

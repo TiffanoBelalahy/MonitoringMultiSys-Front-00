@@ -21,97 +21,82 @@
  * 
  * You can override `.env` values from the command line like so:
  * 
- * ```bash
+ * ```sh
  * MY_FEATURE_FLAG="enabled" npm run dev
  * ```
  */
 declare module '$env/static/private' {
-	export const ALLUSERSPROFILE: string;
-	export const APPDATA: string;
-	export const ChocolateyInstall: string;
-	export const ChocolateyLastPathUpdate: string;
-	export const CHROME_CRASHPAD_PIPE_NAME: string;
-	export const CODELLDB_LAUNCH_CONNECT_FILE: string;
-	export const COLOR: string;
-	export const COLORTERM: string;
-	export const CommonProgramFiles: string;
-	export const CommonProgramW6432: string;
-	export const COMPUTERNAME: string;
-	export const ComSpec: string;
-	export const CURL_CA_BUNDLE: string;
-	export const DriverData: string;
-	export const EDITOR: string;
-	export const FPS_BROWSER_APP_PROFILE_STRING: string;
-	export const FPS_BROWSER_USER_PROFILE_STRING: string;
-	export const GDAL_DATA: string;
-	export const GIT_ASKPASS: string;
-	export const HOME: string;
-	export const HOMEDRIVE: string;
-	export const HOMEPATH: string;
-	export const INIT_CWD: string;
-	export const LANG: string;
-	export const LOCALAPPDATA: string;
-	export const LOGONSERVER: string;
-	export const NODE: string;
-	export const NODE_ENV: string;
-	export const NODE_EXE: string;
-	export const NPM_CLI_JS: string;
-	export const npm_command: string;
-	export const npm_config_cache: string;
-	export const npm_config_globalconfig: string;
-	export const npm_config_global_prefix: string;
-	export const npm_config_init_module: string;
-	export const npm_config_local_prefix: string;
-	export const npm_config_node_gyp: string;
-	export const npm_config_noproxy: string;
-	export const npm_config_npm_version: string;
-	export const npm_config_prefix: string;
-	export const npm_config_userconfig: string;
+	export const VITE_API_URL: string;
+	export const LESSOPEN: string;
+	export const USER: string;
+	export const SSH_CLIENT: string;
+	export const LC_TIME: string;
 	export const npm_config_user_agent: string;
-	export const npm_execpath: string;
-	export const npm_lifecycle_event: string;
-	export const npm_lifecycle_script: string;
+	export const XDG_SESSION_TYPE: string;
+	export const GIT_ASKPASS: string;
 	export const npm_node_execpath: string;
-	export const npm_package_json: string;
-	export const npm_package_name: string;
-	export const npm_package_version: string;
-	export const NPM_PREFIX_JS: string;
-	export const NPM_PREFIX_NPM_CLI_JS: string;
-	export const NUMBER_OF_PROCESSORS: string;
-	export const OS: string;
-	export const Path: string;
-	export const PATHEXT: string;
-	export const POSTGIS_ENABLE_OUTDB_RASTERS: string;
-	export const POSTGIS_GDAL_ENABLED_DRIVERS: string;
-	export const PROCESSOR_ARCHITECTURE: string;
-	export const PROCESSOR_IDENTIFIER: string;
-	export const PROCESSOR_LEVEL: string;
-	export const PROCESSOR_REVISION: string;
-	export const ProgramData: string;
-	export const ProgramFiles: string;
-	export const ProgramW6432: string;
-	export const PROJ_LIB: string;
-	export const PROMPT: string;
-	export const PSModulePath: string;
-	export const PUBLIC: string;
-	export const SESSIONNAME: string;
-	export const SystemDrive: string;
-	export const SystemRoot: string;
-	export const TEMP: string;
-	export const TERM_PROGRAM: string;
+	export const SHLVL: string;
+	export const BROWSER: string;
+	export const npm_config_noproxy: string;
+	export const MOTD_SHOWN: string;
+	export const HOME: string;
+	export const ASDF_DIR: string;
+	export const OLDPWD: string;
 	export const TERM_PROGRAM_VERSION: string;
-	export const TMP: string;
-	export const USERDOMAIN: string;
-	export const USERDOMAIN_ROAMINGPROFILE: string;
-	export const USERNAME: string;
-	export const USERPROFILE: string;
-	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+	export const VSCODE_IPC_HOOK_CLI: string;
+	export const npm_package_json: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
+	export const LC_MONETARY: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
+	export const SSL_CERT_FILE: string;
+	export const npm_config_userconfig: string;
+	export const npm_config_local_prefix: string;
+	export const VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
+	export const DBUS_SESSION_BUS_ADDRESS: string;
+	export const COLORTERM: string;
+	export const COLOR: string;
+	export const LOGNAME: string;
+	export const _: string;
+	export const npm_config_prefix: string;
+	export const npm_config_npm_version: string;
+	export const XDG_SESSION_CLASS: string;
+	export const TERM: string;
+	export const XDG_SESSION_ID: string;
+	export const npm_config_cache: string;
+	export const npm_config_node_gyp: string;
+	export const PATH: string;
+	export const NODE: string;
+	export const npm_package_name: string;
+	export const LC_ADDRESS: string;
+	export const XDG_RUNTIME_DIR: string;
+	export const SSL_CERT_DIR: string;
+	export const LANG: string;
+	export const LC_TELEPHONE: string;
+	export const LS_COLORS: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
-	export const VSCODE_NONCE: string;
-	export const windir: string;
-	export const __PSLockDownPolicy: string;
+	export const TERM_PROGRAM: string;
+	export const npm_lifecycle_script: string;
+	export const SHELL: string;
+	export const LC_NAME: string;
+	export const npm_package_version: string;
+	export const npm_lifecycle_event: string;
+	export const LESSCLOSE: string;
+	export const LC_MEASUREMENT: string;
+	export const LC_IDENTIFICATION: string;
+	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+	export const npm_config_globalconfig: string;
+	export const npm_config_init_module: string;
+	export const PWD: string;
+	export const npm_execpath: string;
+	export const SSH_CONNECTION: string;
+	export const XDG_DATA_DIRS: string;
+	export const npm_config_global_prefix: string;
+	export const LC_NUMERIC: string;
+	export const npm_command: string;
+	export const LC_PAPER: string;
+	export const INIT_CWD: string;
+	export const EDITOR: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -132,103 +117,86 @@ declare module '$env/static/public' {
  * 
  * This module cannot be imported into client-side code.
  * 
- * Dynamic environment variables cannot be used during prerendering.
- * 
  * ```ts
  * import { env } from '$env/dynamic/private';
  * console.log(env.DEPLOYMENT_SPECIFIC_VARIABLE);
  * ```
  * 
- * > In `dev`, `$env/dynamic` always includes environment variables from `.env`. In `prod`, this behavior will depend on your adapter.
+ * > [!NOTE] In `dev`, `$env/dynamic` always includes environment variables from `.env`. In `prod`, this behavior will depend on your adapter.
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		ALLUSERSPROFILE: string;
-		APPDATA: string;
-		ChocolateyInstall: string;
-		ChocolateyLastPathUpdate: string;
-		CHROME_CRASHPAD_PIPE_NAME: string;
-		CODELLDB_LAUNCH_CONNECT_FILE: string;
-		COLOR: string;
-		COLORTERM: string;
-		CommonProgramFiles: string;
-		CommonProgramW6432: string;
-		COMPUTERNAME: string;
-		ComSpec: string;
-		CURL_CA_BUNDLE: string;
-		DriverData: string;
-		EDITOR: string;
-		FPS_BROWSER_APP_PROFILE_STRING: string;
-		FPS_BROWSER_USER_PROFILE_STRING: string;
-		GDAL_DATA: string;
-		GIT_ASKPASS: string;
-		HOME: string;
-		HOMEDRIVE: string;
-		HOMEPATH: string;
-		INIT_CWD: string;
-		LANG: string;
-		LOCALAPPDATA: string;
-		LOGONSERVER: string;
-		NODE: string;
-		NODE_ENV: string;
-		NODE_EXE: string;
-		NPM_CLI_JS: string;
-		npm_command: string;
-		npm_config_cache: string;
-		npm_config_globalconfig: string;
-		npm_config_global_prefix: string;
-		npm_config_init_module: string;
-		npm_config_local_prefix: string;
-		npm_config_node_gyp: string;
-		npm_config_noproxy: string;
-		npm_config_npm_version: string;
-		npm_config_prefix: string;
-		npm_config_userconfig: string;
+		VITE_API_URL: string;
+		LESSOPEN: string;
+		USER: string;
+		SSH_CLIENT: string;
+		LC_TIME: string;
 		npm_config_user_agent: string;
-		npm_execpath: string;
-		npm_lifecycle_event: string;
-		npm_lifecycle_script: string;
+		XDG_SESSION_TYPE: string;
+		GIT_ASKPASS: string;
 		npm_node_execpath: string;
-		npm_package_json: string;
-		npm_package_name: string;
-		npm_package_version: string;
-		NPM_PREFIX_JS: string;
-		NPM_PREFIX_NPM_CLI_JS: string;
-		NUMBER_OF_PROCESSORS: string;
-		OS: string;
-		Path: string;
-		PATHEXT: string;
-		POSTGIS_ENABLE_OUTDB_RASTERS: string;
-		POSTGIS_GDAL_ENABLED_DRIVERS: string;
-		PROCESSOR_ARCHITECTURE: string;
-		PROCESSOR_IDENTIFIER: string;
-		PROCESSOR_LEVEL: string;
-		PROCESSOR_REVISION: string;
-		ProgramData: string;
-		ProgramFiles: string;
-		ProgramW6432: string;
-		PROJ_LIB: string;
-		PROMPT: string;
-		PSModulePath: string;
-		PUBLIC: string;
-		SESSIONNAME: string;
-		SystemDrive: string;
-		SystemRoot: string;
-		TEMP: string;
-		TERM_PROGRAM: string;
+		SHLVL: string;
+		BROWSER: string;
+		npm_config_noproxy: string;
+		MOTD_SHOWN: string;
+		HOME: string;
+		ASDF_DIR: string;
+		OLDPWD: string;
 		TERM_PROGRAM_VERSION: string;
-		TMP: string;
-		USERDOMAIN: string;
-		USERDOMAIN_ROAMINGPROFILE: string;
-		USERNAME: string;
-		USERPROFILE: string;
-		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+		VSCODE_IPC_HOOK_CLI: string;
+		npm_package_json: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
+		LC_MONETARY: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
+		SSL_CERT_FILE: string;
+		npm_config_userconfig: string;
+		npm_config_local_prefix: string;
+		VSCODE_PYTHON_AUTOACTIVATE_GUARD: string;
+		DBUS_SESSION_BUS_ADDRESS: string;
+		COLORTERM: string;
+		COLOR: string;
+		LOGNAME: string;
+		_: string;
+		npm_config_prefix: string;
+		npm_config_npm_version: string;
+		XDG_SESSION_CLASS: string;
+		TERM: string;
+		XDG_SESSION_ID: string;
+		npm_config_cache: string;
+		npm_config_node_gyp: string;
+		PATH: string;
+		NODE: string;
+		npm_package_name: string;
+		LC_ADDRESS: string;
+		XDG_RUNTIME_DIR: string;
+		SSL_CERT_DIR: string;
+		LANG: string;
+		LC_TELEPHONE: string;
+		LS_COLORS: string;
 		VSCODE_GIT_IPC_HANDLE: string;
-		VSCODE_NONCE: string;
-		windir: string;
-		__PSLockDownPolicy: string;
+		TERM_PROGRAM: string;
+		npm_lifecycle_script: string;
+		SHELL: string;
+		LC_NAME: string;
+		npm_package_version: string;
+		npm_lifecycle_event: string;
+		LESSCLOSE: string;
+		LC_MEASUREMENT: string;
+		LC_IDENTIFICATION: string;
+		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
+		npm_config_globalconfig: string;
+		npm_config_init_module: string;
+		PWD: string;
+		npm_execpath: string;
+		SSH_CONNECTION: string;
+		XDG_DATA_DIRS: string;
+		npm_config_global_prefix: string;
+		LC_NUMERIC: string;
+		npm_command: string;
+		LC_PAPER: string;
+		INIT_CWD: string;
+		EDITOR: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
@@ -238,8 +206,6 @@ declare module '$env/dynamic/private' {
  * Similar to [`$env/dynamic/private`](https://svelte.dev/docs/kit/$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://svelte.dev/docs/kit/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
  * 
  * Note that public dynamic environment variables must all be sent from the server to the client, causing larger network requests — when possible, use `$env/static/public` instead.
- * 
- * Dynamic environment variables cannot be used during prerendering.
  * 
  * ```ts
  * import { env } from '$env/dynamic/public';

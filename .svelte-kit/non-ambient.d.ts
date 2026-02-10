@@ -23,3 +23,21 @@ declare module "svelte/elements" {
 }
 
 export {};
+
+
+declare module "$app/types" {
+	export interface AppTypes {
+		RouteId(): "/" | "/api" | "/api/processes";
+		RouteParams(): {
+			
+		};
+		LayoutParams(): {
+			"/": Record<string, never>;
+			"/api": Record<string, never>;
+			"/api/processes": Record<string, never>
+		};
+		Pathname(): "/" | "/api" | "/api/" | "/api/processes" | "/api/processes/";
+		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
+		Asset(): "/128x128.png" | "/32x32.png" | "/favicon.png" | "/logo.png" | "/svelte.svg" | "/tauri.svg" | "/vite.svg" | string & {};
+	}
+}
