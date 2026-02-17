@@ -89,10 +89,6 @@ function createProcessStore() {
     }
   };
 
-
-
-
-
   const killProcess = async (pid: number) => {
     try {
       update((state) => ({ ...state, isKilling: true }));
@@ -102,7 +98,7 @@ function createProcessStore() {
       if (success) {
         await getProcesses();
       } else {
-        throw new Error("Failed to kill process");
+        throw new Error("Failed to kill process...");
       }
     } catch (e: unknown) {
       update((state) => ({

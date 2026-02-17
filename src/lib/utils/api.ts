@@ -16,11 +16,11 @@ export const api = {
   },
 
 
-  async killProcess(host: string, pid: number) {
+  async killProcess(agentId: string, pid: number) {
     const res = await fetch(`${BASE_URL}/api/processes/kill`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ host, pid }),
+      body: JSON.stringify({ agent_id: agentId, pid }),
     });
     if (!res.ok) throw new Error("Failed to kill process");
     return res.json() as Promise<boolean>;

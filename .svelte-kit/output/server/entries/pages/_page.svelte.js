@@ -186,6 +186,8 @@ const api = {
     if (!res.ok) throw new Error("Failed to kill process");
     return res.json();
   }
+  
+
 };
 const hosts = writable([]);
 const selectedHost = writable(null);
