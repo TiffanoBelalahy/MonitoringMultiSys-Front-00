@@ -27,17 +27,18 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/api" | "/api/processes";
+		RouteId(): "/" | "/api" | "/api/processes" | "/login";
 		RouteParams(): {
 			
 		};
 		LayoutParams(): {
 			"/": Record<string, never>;
 			"/api": Record<string, never>;
-			"/api/processes": Record<string, never>
+			"/api/processes": Record<string, never>;
+			"/login": Record<string, never>
 		};
-		Pathname(): "/" | "/api" | "/api/" | "/api/processes" | "/api/processes/";
+		Pathname(): "/" | "/api" | "/api/" | "/api/processes" | "/api/processes/" | "/login" | "/login/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/128x128.png" | "/32x32.png" | "/favicon.png" | "/logo.png" | "/svelte.svg" | "/tauri.svg" | "/vite.svg" | string & {};
+		Asset(): "/128x128.png" | "/32x32.png" | "/favicon.png" | "/favicon01.png" | "/logo.png" | "/svelte.svg" | "/tauri.svg" | "/vite.svg" | string & {};
 	}
 }

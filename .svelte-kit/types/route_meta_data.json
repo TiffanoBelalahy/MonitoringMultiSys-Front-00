@@ -5,5 +5,8 @@
 	],
 	"/api/processes": [
 		"src/routes/api/processes/+server.ts"
+	],
+	"/login": [
+		"src/routes/+layout.js"
 	]
 }

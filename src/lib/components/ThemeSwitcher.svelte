@@ -8,7 +8,6 @@
     faChevronRight,
     faChevronLeft,
   } from "@fortawesome/free-solid-svg-icons";
-  //import { platform } from "@tauri-apps/plugin-os";
   import { THEME_GROUPS } from "$lib/constants";
   import { onDestroy } from "svelte";
 

@@ -2,6 +2,10 @@
   import { onMount, onDestroy } from "svelte";
   import { debounce } from "$lib/utils";
   import { loadHosts } from "$lib/stores/hosts";
+  
+  import { authToken } from "$lib/stores/auth";
+  import { goto } from "$app/navigation";
+  import { get } from "svelte/store";
 
   import {
     StatsBar,
@@ -111,19 +115,40 @@
     }
   }
 
-  onMount(async () => {
-  try {
-    await loadHosts();          // 🔥 IMPORTANT
-    await processStore.getProcesses();
-  } catch (error) {
-    console.error("Failed to load data:", error);
-  } finally {
-    processStore.setIsLoading(false);
-  }
+//   onMount(async () => {
+//   try {
+//     await loadHosts();          // 🔥 IMPORTANT
+//     await processStore.getProcesses();
+//   } catch (error) {
+//     console.error("Failed to load data:", error);
+//   } finally {
+//     processStore.setIsLoading(false);
+//   }
 
-  settingsStore.init();
-  themeStore.init();
-});
+//   settingsStore.init();
+//   themeStore.init();
+// });
+  onMount(async () => {
+    // 🔐 Vérification auth
+    const token = get(authToken);
+
+    if (!token) {
+      goto("/login");
+      return;
+    }
+
+    try {
+      await loadHosts();
+      await processStore.getProcesses();
+    } catch (error) {
+      console.error("Failed to load data:", error);
+    } finally {
+      processStore.setIsLoading(false);
+    }
+
+    settingsStore.init();
+    themeStore.init();
+  });
 
 
   onDestroy(() => {

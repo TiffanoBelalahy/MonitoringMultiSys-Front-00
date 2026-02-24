@@ -3,7 +3,7 @@
 
 <div class="title-bar" data-tauri-drag-region>
   <div class="title">
-    <img src="/32x32.png" alt="MonitoringMultiSystem" class="app-icon" />
+    <!-- <img src="/32x32.png" alt="MonitoringMultiSystem" class="app-icon" /> -->
     <div class="neon">MonitoringMultiSystem</div>
   </div>
 </div>
@@ -36,11 +36,11 @@
     color: var(--text);
   }
 
-  .app-icon {
+  /* .app-icon {
     width: 24px;
     height: 24px;
     margin-right: 4px;
     display: flex;
     align-items: center;
-  }
+  } */
 </style>
