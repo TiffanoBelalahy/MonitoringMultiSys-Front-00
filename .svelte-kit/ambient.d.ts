@@ -41,7 +41,6 @@ declare module '$env/static/private' {
 	export const MOTD_SHOWN: string;
 	export const HOME: string;
 	export const ASDF_DIR: string;
-	export const OLDPWD: string;
 	export const TERM_PROGRAM_VERSION: string;
 	export const VSCODE_IPC_HOOK_CLI: string;
 	export const npm_package_json: string;
@@ -141,7 +140,6 @@ declare module '$env/dynamic/private' {
 		MOTD_SHOWN: string;
 		HOME: string;
 		ASDF_DIR: string;
-		OLDPWD: string;
 		TERM_PROGRAM_VERSION: string;
 		VSCODE_IPC_HOOK_CLI: string;
 		npm_package_json: string;

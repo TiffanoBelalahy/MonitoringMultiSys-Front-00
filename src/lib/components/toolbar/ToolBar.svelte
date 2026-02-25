@@ -9,6 +9,7 @@
   } from "$lib/components";
   import { overlayStore } from "$lib/stores/overlay";
   import { hosts, selectedHost } from "$lib/stores/hosts";
+  import { showGraph, toggleGraph, selectedRange, setRange } from "$lib/stores/graph";
 
   export let searchTerm: string;
   export let itemsPerPage: number;
@@ -40,52 +41,75 @@
 </script>
 
 <div class="toolbar">
-  <div class="toolbar-content" class:overlay-mode={isAnyOverlayOpen}>
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "searchHelp"}>
+  <div class="toolbar-content">
+
+    <!-- MODE GRAPH -->
+    {#if $showGraph}
+
+      <div class="graph-controls">
+        <button on:click={toggleGraph}>
+          📋 Table
+        </button>
+
+        <select
+          bind:value={$selectedRange}
+          on:change={(e) => setRange(e.target.value)}
+        >
+          <option value="realtime">Live</option>
+          <option value="1m">1m</option>
+          <option value="1h">1h</option>
+          <option value="10h">10h</option>
+          <option value="1d">1d</option>
+          <option value="1month">1M</option>
+        </select>
+        <AppInfo />
+      </div>
+
+    {:else}
+
+      <!-- MODE TABLE (ancien toolbar complet) -->
+
       <SearchBox bind:searchTerm />
-    </div>
 
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "filters"}>
+      <div class="graph-controls">
+        <button on:click={toggleGraph}>
+          📊 Graph
+        </button>
+      </div>
+
       <FilterToggle bind:filters />
-    </div>
 
-    <div class="toolbar-spacer" class:hidden={isAnyOverlayOpen}></div>
+      <div class="toolbar-spacer"></div>
 
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "pagination"}>
       <PaginationControls
         bind:itemsPerPage
         bind:currentPage
         {totalPages}
         {totalResults}
       />
-    </div>
-    <div class="toolbar-spacer" class:hidden={isAnyOverlayOpen}></div>
 
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "columns"}>
+      <div class="toolbar-spacer"></div>
+
       <ColumnToggle {columns} />
-    </div>
 
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "refresh"}>
       <RefreshControls bind:refreshRate bind:isFrozen />
-    </div>
 
-    <div class:hidden={isAnyOverlayOpen && activeOverlayType !== "theme"}>
       <AppInfo />
-    </div>
-    <div class:hidden={isAnyOverlayOpen }>
+
       <select bind:value={$selectedHost}>
-      <option value="" disabled>
-        -- Select agent --
-      </option>
-
-      {#each $hosts as host}
-        <option value={host.id}>
-          {host.id} {host.online ? "🟢" : "🔴"}
+        <option value="" disabled>
+          -- Select agent --
         </option>
-      {/each}
-    </select>
 
-    </div>
+        {#each $hosts as host}
+          <option value={host.id}>
+            {host.id} {host.online ? "🟢" : "🔴"}
+          </option>
+        {/each}
+      </select>
+
+    {/if}
+
   </div>
 </div>
 
@@ -119,4 +143,12 @@
   .toolbar-spacer {
     flex: 1;
   }
+
+  .graph-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+ 
 </style>

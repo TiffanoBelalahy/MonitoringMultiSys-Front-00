@@ -7,6 +7,9 @@
   import { goto } from "$app/navigation";
   import { get } from "svelte/store";
 
+  import { showGraph, selectedRange, setRange } from "$lib/stores/graph";
+  import MonitoringGraph from "$lib/components/MonitoringGraph.svelte";
+
   import {
     StatsBar,
     ToolBar,
@@ -186,17 +189,25 @@
         <div class="alert">{error}</div>
       {/if}
 
-      <ProcessTable
-        processes={paginatedProcesses}
-        {columns}
-        {systemStats}
-        {sortConfig}
-        {pinnedProcesses}
-        onToggleSort={processStore.toggleSort}
-        onTogglePin={processStore.togglePin}
-        onShowDetails={processStore.showProcessDetails}
-        onKillProcess={processStore.confirmKillProcess}
-      />
+      {#if $showGraph}
+        <MonitoringGraph
+          {systemStats}
+          processes={paginatedProcesses}
+          range={$selectedRange}
+        />
+      {:else}
+        <ProcessTable
+          processes={paginatedProcesses}
+          {columns}
+          {systemStats}
+          {sortConfig}
+          {pinnedProcesses}
+          onToggleSort={processStore.toggleSort}
+          onTogglePin={processStore.togglePin}
+          onShowDetails={processStore.showProcessDetails}
+          onKillProcess={processStore.confirmKillProcess}
+        />
+      {/if}
     </main>
   </div>
 {/if}

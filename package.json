@@ -16,6 +16,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "chart.js": "^4.5.1",
     "simple-icons": "^13.15.0",
     "svelte-fa": "^4.0.3"
   },
