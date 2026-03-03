@@ -10,6 +10,8 @@
     Legend,
     Tooltip,
   } from "chart.js";
+  import { get } from "svelte/store";
+  import { selectedHost } from "$lib/stores/hosts";
 
   Chart.register(
     LineController,
@@ -23,7 +25,7 @@
 
   export let systemStats: any;
   export let range: string;
-
+ 
   let canvas: HTMLCanvasElement;
   let chart: Chart;
 
@@ -34,6 +36,42 @@
   let labels: string[] = [];
 
   const MAX_POINTS = 60;
+
+ 
+
+  let historyMode = false;
+
+  async function loadHistory() {
+    const agent = get(selectedHost);
+    if (!agent) return;
+
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/api/agents/${agent}/history?range=${range}`
+    );
+
+    const data = await res.json();
+
+    cpuHistory.length = 0;
+    memHistory.length = 0;
+    rxHistory.length = 0;
+    txHistory.length = 0;
+    labels.length = 0;
+
+    data.forEach((d) => {
+      cpuHistory.push(d.cpu_usage ?? 0);
+      memHistory.push(
+        d.memory_total
+          ? (d.memory_used / d.memory_total) * 100
+          : 0
+      );
+      rxHistory.push(d.network_receive ?? 0);
+      txHistory.push(d.network_transmit ?? 0);
+      labels.push(new Date(d.created_at).toLocaleTimeString());
+    });
+
+    chart.update();
+  }
+
 
   onMount(() => {
     chart = new Chart(canvas, {
@@ -108,7 +146,22 @@
     });
   });
 
-  $: if (chart && systemStats) {
+  // $: if (chart && range && range !== "realtime") {
+  //   historyMode = true;
+  //   loadHistory();
+  // }
+
+  $: if (chart && range) {
+    if (range === "realtime") {
+      historyMode = false;
+    } else {
+      historyMode = true;
+      loadHistory();
+    }
+  }
+
+
+  $: if (chart && systemStats && !historyMode) {
     const cpu = systemStats.cpu_usage ?? 0;
     const mem =
       systemStats.memory_used && systemStats.memory_total

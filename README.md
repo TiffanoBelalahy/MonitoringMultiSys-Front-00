@@ -1,7 +1,7 @@
 
 <div align="center">
   <img src="app-icon.png" alt="NeoHtop Logo" width="120" />
-  <h1>NeoHtop</h1>
+  <h1>MonitoringMultiSystem</h1>
   <p>A modern, cross-platform system monitor built on top of Svelte, Rust, and Tauri.</p>
 
   [![License](https://img.shields.io/github/license/Abdenasser/neohtop)](https://github.com/Abdenasser/neohtop/blob/main/LICENSE)

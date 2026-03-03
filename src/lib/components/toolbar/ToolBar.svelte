@@ -63,6 +63,17 @@
           <option value="1month">1M</option>
         </select>
         <AppInfo />
+        <select bind:value={$selectedHost}>
+          <option value="" disabled>
+            -- Select agent --
+          </option>
+
+          {#each $hosts as host}
+            <option value={host.id}>
+              {host.id} {host.online ? "🟢" : "🔴"}
+            </option>
+          {/each}
+        </select>
       </div>
 
     {:else}
