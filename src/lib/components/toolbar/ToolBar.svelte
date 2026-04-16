@@ -101,11 +101,11 @@
 
       <div class="toolbar-spacer"></div>
 
-      <ColumnToggle {columns} />
+      <!-- <ColumnToggle {columns} /> -->
 
       <RefreshControls bind:refreshRate bind:isFrozen />
 
-      <AppInfo />
+      <!-- <AppInfo /> -->
 
       <select bind:value={$selectedHost}>
         <option value="" disabled>
